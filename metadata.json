@@ -1,0 +1,6 @@
+{
+  "name": "KidsLand",
+  "description": "Fun and interactive learning academy for kids with math, 1-100 numbers, alphabet and numeric tracing, animal coloring, vocabulary audio pronunciation, and streak rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

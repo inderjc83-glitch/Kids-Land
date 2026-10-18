@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KidsLand - Fun & Interactive Learning Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #039BE5;
+      --sunny-amber: #FFA000;
+      --bright-orange: #FF7043;
+      --grass-green: #43A047;
+      --bubblegum-pink: #EC407A;
+      --berry-purple: #8E24AA;
+      --star-gold: #FFD700;
+      --bg-light: #FFFDF5;
+      --card-bg: #FFFFFF;
+      --text-dark: #212121;
+      --text-muted: #5A5A5A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header Nav */
+    header {
+      background: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      font-size: 32px;
+      background: #FFF3E0;
+      border: 2px solid var(--sunny-amber);
+      border-radius: 14px;
+      padding: 4px 8px;
+    }
+
+    .brand-name {
+      font-family: 'Fredoka', cursive;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .brand-name span {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(3, 155, 229, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(3, 155, 229, 0.4);
+    }
+
+    .btn-github {
+      background: #24292e;
+      color: #FFFFFF;
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFF8E1;
+      border: 1.5px solid var(--sunny-amber);
+      color: #E65100;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Fredoka', cursive;
+      font-size: 44px;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary), var(--bubblegum-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 30px;
+    }
+
+    /* Interactive Voice Demo */
+    .demo-section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #FFFFFF;
+      border-radius: 28px;
+      border: 2px solid #E0F2FE;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .demo-title {
+      font-family: 'Fredoka', cursive;
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .demo-subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .demo-card {
+      background: var(--bg-light);
+      border: 2px solid rgba(0,0,0,0.08);
+      border-radius: 20px;
+      padding: 18px 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .demo-card:hover {
+      transform: scale(1.05);
+      border-color: var(--primary);
+      box-shadow: 0 8px 20px rgba(3, 155, 229, 0.15);
+    }
+
+    .demo-card:active {
+      transform: scale(0.97);
+    }
+
+    .demo-icon {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .demo-label {
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--text-dark);
+    }
+
+    .demo-sublabel {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .sound-status {
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--grass-green);
+      margin-top: 10px;
+      min-height: 20px;
+    }
+
+    /* Curriculum Age Tiers */
+    .age-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-header h2 {
+      font-family: 'Fredoka', cursive;
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .tier-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .tier-card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 24px;
+      border: 2px solid #EEEEEE;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      transition: transform 0.2s;
+    }
+
+    .tier-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .tier-toddler { border-top: 6px solid var(--sunny-amber); }
+    .tier-preschool { border-top: 6px solid var(--primary); }
+    .tier-primary { border-top: 6px solid var(--berry-purple); }
+
+    .tier-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .tier-toddler .tier-badge { background: #FFF8E1; color: #E65100; }
+    .tier-preschool .tier-badge { background: #E1F5FE; color: var(--primary); }
+    .tier-primary .tier-badge { background: #F3E5F5; color: var(--berry-purple); }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .feature-item {
+      background: #FFFFFF;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1.5px solid #EEEEEE;
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .feature-item h3 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .feature-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Deployment Box */
+    .deploy-box {
+      max-width: 800px;
+      margin: 60px auto 40px;
+      padding: 30px;
+      background: linear-gradient(135deg, #0288D1, #1565C0);
+      color: #FFFFFF;
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(2, 136, 209, 0.3);
+    }
+
+    .deploy-box h2 {
+      font-family: 'Fredoka', cursive;
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .deploy-box p {
+      font-size: 16px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .deploy-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .step-pill {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 12px 18px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid #EEEEEE;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 32px; }
+      .demo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">🦁</div>
+        <div class="brand-name">Kids<span>Land</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="btn btn-primary" onclick="speakText('Welcome to KidsLand Academy!')">
+          🔊 Hear Welcome
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="badge-pill">✨ 100% Offline Learning • Safe for Kids</div>
+    <h1>Fun & Interactive<br><span>Early Learning Academy</span></h1>
+    <p>Gamified math puzzles, digital handwriting tracing, animal coloring, stories & nursery rhymes, and vocabulary phonics with auditory feedback!</p>
+  </section>
+
+  <!-- Interactive Voice & Topics Demo (Live Web Speech Synthesis) -->
+  <section class="demo-section">
+    <h2 class="demo-title">Tap to Test Voice Pronunciation 🔊</h2>
+    <p class="demo-subtitle">Try the real pronunciation engine for all 5 topics right in your browser:</p>
+    
+    <div class="demo-grid">
+      <div class="demo-card" onclick="speakDemo('Colors', 'Red, Blue, Green, Yellow, Orange, Purple, and Pink!')">
+        <div class="demo-icon">🎨</div>
+        <div class="demo-label">Colors</div>
+        <div class="demo-sublabel">रंग (10 Colors)</div>
+      </div>
+
+      <div class="demo-card" onclick="speakDemo('Animals', 'Lion, Elephant, Monkey, Tiger, Giraffe, and Dog!')">
+        <div class="demo-icon">🦁</div>
+        <div class="demo-label">Animals</div>
+        <div class="demo-sublabel">जानवर (12 Animals)</div>
+      </div>
+
+      <div class="demo-card" onclick="speakDemo('Birds', 'Parrot, Peacock, Eagle, Sparrow, Owl, and Duck!')">
+        <div class="demo-icon">🦜</div>
+        <div class="demo-label">Birds</div>
+        <div class="demo-sublabel">पक्षी (10 Birds)</div>
+      </div>
+
+      <div class="demo-card" onclick="speakDemo('Months', 'January, February, March, April, May, June, July, August, September, October, November, and December!')">
+        <div class="demo-icon">📅</div>
+        <div class="demo-label">Months</div>
+        <div class="demo-sublabel">महीने (12 Months)</div>
+      </div>
+
+      <div class="demo-card" onclick="speakDemo('Weekdays', 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday!')">
+        <div class="demo-icon">☀️</div>
+        <div class="demo-label">Weekdays</div>
+        <div class="demo-sublabel">दिन (7 Days)</div>
+      </div>
+    </div>
+
+    <div class="sound-status" id="speechStatus">Tap any card above to listen!</div>
+  </section>
+
+  <!-- Curriculum Tiers -->
+  <section class="age-section">
+    <div class="section-header">
+      <h2>Adaptive Curriculum Tiers</h2>
+      <p>Content automatically adjusts difficulty based on child's age group</p>
+    </div>
+
+    <div class="tier-cards">
+      <div class="tier-card tier-toddler">
+        <div class="tier-badge">Ages 2 - 4</div>
+        <h3>🐣 Little Explorers</h3>
+        <p style="margin: 8px 0; color: var(--text-muted); font-size: 14px;">Big touch targets, friendly animal sounds, color recognition, and basic counting 1 to 10.</p>
+      </div>
+
+      <div class="tier-card tier-preschool">
+        <div class="tier-badge">Ages 5 - 6</div>
+        <h3>🦊 Smart Cubs</h3>
+        <p style="margin: 8px 0; color: var(--text-muted); font-size: 14px;">Alphabet & number handwriting pad, fruit addition puzzles, 1-50 numbers, and nursery rhymes.</p>
+      </div>
+
+      <div class="tier-card tier-primary">
+        <div class="tier-badge">Ages 7 - 9</div>
+        <h3>🚀 Super Stars</h3>
+        <p style="margin: 8px 0; color: var(--text-muted); font-size: 14px;">1-100 number mastery, cognitive memory match puzzles, math equations, and reading comprehension stories.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="features-grid">
+    <div class="feature-item">
+      <div class="feature-icon">🔢</div>
+      <h3>Math & 1-100 Chart</h3>
+      <p>Interactive fruit counting, auditory number visualizer, and balloon bursting math puzzles.</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">✍️</div>
+      <h3>Handwriting Tracing</h3>
+      <p>Touch canvas for tracing A-Z letters and 0-9 numbers with rainbow ink colors.</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🎨</div>
+      <h3>Animal Coloring</h3>
+      <p>Color puppy, lion, dolphin, butterfly, and turtle drawings with an undo palette.</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🛡️</div>
+      <h3>Parent Dashboard</h3>
+      <p>PIN-protected stats, daily study streak habit reminders, and one-tap exportable report cards.</p>
+    </div>
+  </section>
+
+  <!-- GitHub and Vercel Deployment Info Box -->
+  <div class="deploy-box">
+    <h2>🚀 Ready for GitHub & Vercel</h2>
+    <p>This repository is fully configured for continuous integration on GitHub and web hosting on Vercel.</p>
+    <div class="deploy-steps">
+      <div class="step-pill">1. Push repository to GitHub</div>
+      <div class="step-pill">2. GitHub Actions builds Android APK</div>
+      <div class="step-pill">3. Connect to Vercel for instant web portal</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 KidsLand Academy. Built with Kotlin, Jetpack Compose, and modern web standards.</p>
+  </footer>
+
+  <script>
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.9;
+        utterance.pitch = 1.1;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function speakDemo(topic, details) {
+      const statusEl = document.getElementById('speechStatus');
+      statusEl.textContent = `🔊 Playing pronunciation for: ${topic}...`;
+      
+      speakText(`${topic}! ${details}`);
+      
+      setTimeout(() => {
+        statusEl.textContent = `✓ Spoke ${topic}! Tap another card to listen.`;
+      }, 2500);
+    }
+  </script>
+</body>
+</html>

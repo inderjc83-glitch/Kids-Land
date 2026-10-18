@@ -1,0 +1,17 @@
+{
+  "name": "kidsland-app",
+  "version": "1.0.0",
+  "description": "KidsLand: Interactive Gamified Learning Academy for Kids",
+  "scripts": {
+    "build": "mkdir -p public",
+    "start": "npx serve public"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/android": "^6.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  },
+  "keywords": ["kids", "learning", "education", "android", "math", "alphabet", "phonics"]
+}
